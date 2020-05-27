@@ -1,10 +1,9 @@
 module.exports = {
-	globDirectory: 'public/',
-	globPatterns: ['**/*.{js,css,png,jpg}','offline.html'],
-	swSrc: 'public/sw-base.js',
-	swDest: 'public/service-worker.js',
-	globIgnores: [
-		'../workbox-cli-config.js',
-		'photos/**'
-  ]
+  "globDirectory": "public/",
+  "globPatterns": [
+    "**/*.{css,eot,svg,ttf,woff,woff2,png,jpg,js,txt,rb,json,ico,php,html,less,config}",
+    "index.php"
+  ],
+  "swDest": "public\\sw.js",
+  "swSrc": "public/sw-base.js"
 };

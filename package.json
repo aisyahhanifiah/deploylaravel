@@ -22,7 +22,8 @@
         "sass": "^1.26.5",
         "sass-loader": "^8.0.2",
         "vue": "^2.5.7",
-        "vue-template-compiler": "^2.6.11"
+        "vue-template-compiler": "^2.6.11",
+        "workbox-cli": "^3.5.0"
     },
     "dependencies": {
         "-": "0.0.1",
