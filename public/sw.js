@@ -6978,11 +6978,11 @@ if (workbox) {
   },
   {
     "url": "img/favicon-192.png",
-    "revision": "e700310b736b919ecf73cddcdc801fbf"
+    "revision": "b0290e1ddebd41af291873d6a3f7bf54"
   },
   {
     "url": "img/favicon-512.png",
-    "revision": "158f703a3c7e4679297f26b3c4b41a0f"
+    "revision": "2764eeac8cc7c2bce2d0a4e5144caad9"
   },
   {
     "url": "img/favicon.png",
@@ -6999,6 +6999,46 @@ if (workbox) {
   {
     "url": "img/NTU0NDAucG5n.png/W7gucvNAmWr9HT7wRMOldI5dptaXfaJDVHKTdrTl.png",
     "revision": "d82080ff61bf92661a0a9164bf4e9a61"
+  },
+  {
+    "url": "img/splash-1125x2436.png",
+    "revision": "e0c47f8227905b3b4716ffa900a5729f"
+  },
+  {
+    "url": "img/splash-1242x2208.png",
+    "revision": "83c15db9194bba939f91bf3425e20e5b"
+  },
+  {
+    "url": "img/splash-1242x2688.png",
+    "revision": "eafba246f98cbd7e3ec084857e0cb2f9"
+  },
+  {
+    "url": "img/splash-1536x2048.png",
+    "revision": "a0d71e73673ceb8bd651bef1c3bba043"
+  },
+  {
+    "url": "img/splash-1668x2224.png",
+    "revision": "29f130d504d739db2a541e22fbc326b4"
+  },
+  {
+    "url": "img/splash-1668x2388.png",
+    "revision": "2ab01744c5e48b4f43465eb90dd8225a"
+  },
+  {
+    "url": "img/splash-2048x2732.png",
+    "revision": "090d649d55aadd7a91f4a1051996d72f"
+  },
+  {
+    "url": "img/splash-640x1136.png",
+    "revision": "11e6b3db3c870380ebde7c81a17b0c3f"
+  },
+  {
+    "url": "img/splash-750x1334.png",
+    "revision": "dc1aa5e504a2d3f388f8bb6a93e1b0d3"
+  },
+  {
+    "url": "img/splash-828x1792.png",
+    "revision": "fa3946f59d381be94e721df71df2d326"
   },
   {
     "url": "img/user/NTU0NDAucG5n.png",
@@ -7022,7 +7062,7 @@ if (workbox) {
   },
   {
     "url": "manifest.json",
-    "revision": "5424e366449c2a23f4864fb266582272"
+    "revision": "ee1c69af499b9781ea12537fae93566d"
   },
   {
     "url": "mix-manifest.json",
@@ -7113,10 +7153,6 @@ if (workbox) {
     "revision": "efde7d319501b6200c5431e114a7aa32"
   },
   {
-    "url": "service-worker.js",
-    "revision": "9a5335124364e1ae7938931c3d3efb54"
-  },
-  {
     "url": "storage/bar.png/uqRzoXHS6qqBnmC9j3aOwgoeRMkuM5mwwjQybW78.png",
     "revision": "d82080ff61bf92661a0a9164bf4e9a61"
   },
@@ -7126,7 +7162,11 @@ if (workbox) {
   },
   {
     "url": "sw-base.js",
-    "revision": "045744e29a2d90d88e0c3db7866dc19f"
+    "revision": "870014b0adb4780e106f3e85d6958bb0"
+  },
+  {
+    "url": "try.js",
+    "revision": "adfd7645e51800fc1bd715f4a91e1f47"
   },
   {
     "url": "vendor/invoices/bootstrap.min.css",
