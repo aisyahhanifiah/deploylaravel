@@ -31,6 +31,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="theme-color" content="#e5e5e5">
         
+        {{-- <script type="text/javascript">
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function () {
+                    navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                        console.log('ServiceWorker registration :', registration.scope);
+                    }).catch(function (error) {
+                        console.log('ServiceWorker registration failed:', errror);
+                    });
+                });
+            }
+           
+        </script> --}}
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -74,6 +86,15 @@
 {{--         <script src="{{ asset('selectize') }}/js/index.js"></script>
  --}}
         @yield('loadlist')
-        <script src="{{asset('js')}}/installworker.js"></script>
+        {{-- <script src="{{asset('js')}}/installworker.js"></script> --}}
+        <script src="text/javascript">
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+              // Use the window load event to keep the page load performant
+              window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+              });
+            }
+        </script>
 </body>
 </html>
