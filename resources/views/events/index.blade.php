@@ -71,7 +71,7 @@
           @foreach ($users->events as $events)
 
           @if($events->id == $event->id)
-          <a href="#" class="btn btn-sm btn-success">Joined</a><br><br>
+          <a href="#" class="btn btn-sm btn-success disabled">Joined</a><br><br>
           @endif
 
           @endforeach

@@ -116,7 +116,7 @@
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
+                        <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" style="width: 40%;">Club</th>
@@ -161,7 +161,7 @@
                     </div>
                     <div class="table-responsive">
                         <!-- Projects table -->
-                        <table class="table align-items-center table-flush">
+                        <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" style="width: 40%;">Event</th>

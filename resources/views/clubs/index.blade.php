@@ -66,7 +66,7 @@
           @foreach ($users->clubs as $clubs)
 
           @if($clubs->id == $club->id)
-          <a href="#" class="btn btn-sm btn-success">Joined</a><br><br>
+          <a href="#" class="btn btn-sm btn-success disabled">Joined</a><br><br>
           @endif
 
           @endforeach

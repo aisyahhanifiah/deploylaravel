@@ -38,7 +38,7 @@
       </div>
 
   </div>
-  <div class="row">
+  <div class="row table-responsive-md">
       <div class="col-md-7">
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
