@@ -32,7 +32,7 @@
 
         <!-- Add to homescreen for Safari on iOS -->
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="#5d28dd">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="apple-mobile-web-app-title" content="ClubHub">
         <link rel="apple-touch-icon" href="{{asset('img')}}/favicon-512.png">
 
