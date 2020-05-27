@@ -32,9 +32,9 @@
         <meta name="theme-color" content="#5d28dd">
 
         <!-- Add to homescreen for Safari on iOS -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
+        {{-- <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-title" content="ClubHub">
+        <meta name="apple-mobile-web-app-title" content="ClubHub"> --}}
         <link rel="apple-touch-icon" href="{{asset('img')}}/favicon-512.png">
 
         <link href="{{asset('img')}}/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
@@ -114,11 +114,5 @@
               });
             }
         </script> --}}
-        <script src="">
-            
-            /Mobile/.test(navigator.userAgent) && !location.hash && setTimeout(function () {
-    if (!pageYOffset) window.scrollTo(0, 1);
-}, 1000);
-        </script>
 </body>
 </html>
