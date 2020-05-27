@@ -26,7 +26,7 @@
      //        {"2048x2732" : "/img/splash-2048x2732.png"}
      //    ],
      "start_url": "https://uniclubhub.me/",
-     "scope":".",
+     "scope":"https://uniclubhub.me/",
      // "url": "https://uniclubhub.me/",
      "background_color": "#5d28dd",
      "display": "standalone",
