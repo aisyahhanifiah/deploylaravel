@@ -27,8 +27,8 @@
         <link rel="manifest" href="{{asset('manifest.json')}}">
         <meta name="mobile-web-app-capable" content="yes">
         {{-- <meta name="msapplication-starturl" content="/"> --}}
-        {{-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> --}}
-        <meta name = "viewport" content = "initial-scale = 2.3, user-scalable = no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{-- <meta name = "viewport" content = "initial-scale = 2.3, user-scalable = no"> --}}
         <meta name="theme-color" content="#5d28dd">
 
         <!-- Add to homescreen for Safari on iOS -->
