@@ -31,6 +31,6 @@
      "background_color": "#5d28dd",
      "display": "standalone",
      // fullscreen
-     "scope": "/",
+     // "scope": "/",
      "theme_color": "#5d28dd"
  }
