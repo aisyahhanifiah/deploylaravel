@@ -4,6 +4,12 @@
         <title>{{ $invoice->name }}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="msapplication-starturl" content="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#2d72e2">
+
         <link rel="stylesheet" href="{{ asset('/vendor/invoices/bootstrap.min.css') }}">
 
         <style type="text/css" media="screen">
