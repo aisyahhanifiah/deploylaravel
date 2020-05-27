@@ -16,8 +16,8 @@
      "start_url": "https://uniclubhub.me/",
      "scope":".",
      // "url": "https://uniclubhub.me/",
-     "background_color": "#2d72e2",
+     "background_color": "#5d28dd",
      "display": "standalone",
      "scope": "/",
-     "theme_color": "#2d72e2"
+     "theme_color": "#5d28dd"
  }
