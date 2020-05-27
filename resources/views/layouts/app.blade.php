@@ -87,7 +87,7 @@
  --}}
         @yield('loadlist')
         {{-- <script src="{{asset('js')}}/installworker.js"></script> --}}
-        <script src="text/javascript">
+        <script type="text/javascript">
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
               // Use the window load event to keep the page load performant
