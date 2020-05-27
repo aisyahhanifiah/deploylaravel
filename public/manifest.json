@@ -13,11 +13,23 @@
              "sizes": "512x512"
          }
      ],
+     "splash" : [
+           { "640x1136" : "/img/splash-640x1136.png" },
+            {"750x1334" : "/img/splash-750x1334.png"},
+           { "828x1792" : "/img/splash-828x1792.png"},
+           { "1125x2436" : "/img/splash-1125x2436.png"},
+           { "1242x2208" : "/img/splash-1242x2208.png"},
+           { "1242x2688" : "/img/splash-1242x2688.png"},
+            {"1536x2048" : "/img/splash-1536x2048.png"},
+            {"1668x2224" : "/img/splash-1668x2224.png"},
+           { "1668x2388" : "/img/splash-1668x2388.png"},
+            {"2048x2732" : "/img/splash-2048x2732.png"}
+        ],
      "start_url": "https://uniclubhub.me/",
      "scope":".",
      // "url": "https://uniclubhub.me/",
      "background_color": "#5d28dd",
-     "display": "fullscreen",
+     "display": "standalone",
      // fullscreen
      "scope": "/",
      "theme_color": "#5d28dd"
