@@ -29,7 +29,7 @@
      "scope":"https://uniclubhub.me/",
      // "url": "https://uniclubhub.me/",
      "background_color": "#5d28dd",
-     "display": "fullscreen",
+     "display": "standalone",
      // fullscreen
      "scope": "/",
      "theme_color": "#5d28dd"
