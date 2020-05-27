@@ -7155,8 +7155,8 @@ if (workbox) {
   });
 
   const customController = new workbox.precaching.PrecacheController();
-  customController.addToCacheList(['/offline.html']);
-  const FALLBACK_URL = customController.getCacheKeyForURL('/offline.html');
+  customController.addToCacheList(['/index.html']);
+  const FALLBACK_URL = customController.getCachedUrls('/offline.html');
   const matcher = ({ event }) => event.request.mode === 'navigate';
   const handler = args =>
   	networkFirstHandler
