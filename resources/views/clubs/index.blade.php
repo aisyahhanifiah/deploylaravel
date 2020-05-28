@@ -46,7 +46,7 @@
           <div class="carousel-inner">
             @foreach($club->images as $key => $images)
             <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-              <img class="card-img-top h-50" src="{{ asset('img/club/'.$images->filename) }}" alt="ss">
+              <img class="card-img-top" src="{{ asset('img/club/'.$images->filename) }}" alt="ss">
             </div>
             @endforeach
           </div>
