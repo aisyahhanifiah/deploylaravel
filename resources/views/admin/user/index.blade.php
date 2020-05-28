@@ -55,9 +55,10 @@
                         <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th class="sort" data-sort="name" style="cursor: pointer;" scope="col">{{ __('Name') }} <span><i class="fas fa-sort"></i></span></th>
+                                    <th class="sort " data-sort="name" style="width: 23%;cursor: pointer;" scope="col">{{ __('Name') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="unikl" style="cursor: pointer;" scope="col">{{ __('UniKL ID') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="email" style="cursor: pointer;" scope="col">{{ __('Email') }} <span><i class="fas fa-sort"></i></span></th>
+                                    <th class="sort" data-sort="phone" style="cursor: pointer;" scope="col">{{ __('Phone') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="creation" style="cursor: pointer;" scope="col">{{ __('Creation Date') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th scope="col"></th>
                                 </tr>
@@ -65,11 +66,12 @@
                             <tbody class="list">
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td class="name">{{ $user->name }}</td>
+                                        <td class="name text-truncate">{{ $user->name }}</td>
                                         <td class="unikl">{{ $user->unikl_id }}</td>
-                                        <td class="email">
+                                        <td class="email text-truncate">
                                             <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </td>
+                                        <td class="phone">{{$user->phone_no}}</td>
                                         <td class="creation">{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">

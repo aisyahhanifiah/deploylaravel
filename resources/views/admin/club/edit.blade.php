@@ -208,7 +208,9 @@
                                 </tr>
                             </thead>
                             <tbody class="list">
-
+                                @if($images == NULL)
+                                No images yet.
+                                @endif
                                 @foreach($images as $image)
 
                                 <tr>

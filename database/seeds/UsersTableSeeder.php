@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 use Carbon\Carbon;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        $count = 50;
+        factory(User::class, $count)->create();
         // DB::table('users')->insert([
         //     'name' => 'Admin Admin',
         //     'email' => 'admin@clubhub.com',
@@ -98,32 +101,32 @@ class UsersTableSeeder extends Seeder
         //     'updated_at' => now()
         // ]);
 
-        DB::table('users')->insert([
-            'name' => 'Adam Ghani',
-            'email' => 'adam.ghani@unikl.edu.my',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'unikl_id' => 52213118123,
-            'phone_no' => '0176576767',
-            'gender' => 'Male',
-            'dob' => Carbon::parse('1998-09-07'),
-            'image' => 'logo.jpg',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'Adam Ghani',
+        //     'email' => 'adam.ghani@unikl.edu.my',
+        //     'email_verified_at' => now(),
+        //     'password' => Hash::make('secret'),
+        //     'unikl_id' => 52213118123,
+        //     'phone_no' => '0176576767',
+        //     'gender' => 'Male',
+        //     'dob' => Carbon::parse('1998-09-07'),
+        //     'image' => 'logo.jpg',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
 
-        DB::table('users')->insert([
-            'name' => 'Fakhrul Mohd Hanif',
-            'email' => 'fakhrul.hanif@unikl.edu.my',
-            'email_verified_at' => now(),
-            'password' => Hash::make('secret'),
-            'unikl_id' => 52213118077,
-            'phone_no' => '0186767888',
-            'gender' => 'Male',
-            'dob' => Carbon::parse('1997-09-13'),
-            'image' => 'logo.jpg',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // DB::table('users')->insert([
+        //     'name' => 'Fakhrul Mohd Hanif',
+        //     'email' => 'fakhrul.hanif@unikl.edu.my',
+        //     'email_verified_at' => now(),
+        //     'password' => Hash::make('secret'),
+        //     'unikl_id' => 52213118077,
+        //     'phone_no' => '0186767888',
+        //     'gender' => 'Male',
+        //     'dob' => Carbon::parse('1997-09-13'),
+        //     'image' => 'logo.jpg',
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
     }
 }

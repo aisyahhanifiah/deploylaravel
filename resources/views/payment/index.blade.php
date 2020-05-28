@@ -91,7 +91,7 @@
                         @foreach ($pending1->stripenulleve as $event)
                         <tr>
                             <td class="name">{{ $event->name }}</td>
-                            <td class="fee"><b>RM{{ number_format($event->fees, 2) }}</b></td>
+                            <td class="fees"><b>RM{{ number_format($event->fees, 2) }}</b></td>
                             <td class="created_at">{{ Carbon\Carbon::parse($event->pivot->created_at)->format('d/m/Y') }}</td>
                             <td class="">
                                 <form action="{{route('event.purchase')}}" method="POST">
@@ -175,7 +175,7 @@
 
                         <td class="name">{{ $club->name }}</td>
                         <td class="fees"><b>RM{{ number_format($club->fees, 2) }}</b></td>
-                        <td class="updated_at"><b>{{ Carbon\Carbon::parse($club->pivot->updated_at)->format('d/m/Y') }}</b></td>
+                        <td class="updated_at">{{ Carbon\Carbon::parse($club->pivot->updated_at)->format('d/m/Y') }}</td>
                         <td class=""> {{-- {{ dd($userclub->find($club->pivot->id))}} --}}
                             <a href="{{ route('payment.show1', $userclub->find($club->pivot->id)) }}" class="btn btn-sm btn-success">View More</a>
 
@@ -188,7 +188,7 @@
 
                         <td class="name">{{ $event->name }}</td>
                         <td class="fees"><b>RM{{ number_format($event->fees, 2) }}</b></td>
-                        <td class="updated_at"><b>{{ Carbon\Carbon::parse($club->pivot->updated_at)->format('d/m/Y') }}</b></td>
+                        <td class="updated_at">{{ Carbon\Carbon::parse($club->pivot->updated_at)->format('d/m/Y') }}</td>
                         <td class=""> {{-- {{ dd($userevent->find($event->pivot->id))}} --}}
                             <a href="{{ route('payment.show2', $userevent->find($event->pivot->id)) }}" class="btn btn-sm btn-success">View More</a>
                             

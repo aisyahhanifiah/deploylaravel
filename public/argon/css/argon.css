@@ -5825,10 +5825,13 @@ input[type='button'].btn-block
 
 .card-img-top
 {
-    width: 100%;
+    /*width: 100%;*/
 
     border-top-left-radius: calc(.375rem - 1px);
     border-top-right-radius: calc(.375rem - 1px);
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 
 .card-img-bottom
