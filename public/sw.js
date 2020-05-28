@@ -7216,7 +7216,7 @@ const files = [
 
   self.addEventListener('install', (event) => {
       console.info('Event: Install');
-
+      const cacheName;
       event.waitUntil(
         caches.open(cacheName)
         .then((cache) => {
