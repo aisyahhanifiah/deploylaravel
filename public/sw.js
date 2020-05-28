@@ -1,5 +1,6 @@
-importScripts('vendor/workbox/workbox-v3.6.3/workbox-sw.js');
+
 self.addEventListener('fetch', event => {
+  importScripts('vendor/workbox/workbox-v3.6.3/workbox-sw.js');
   event.respondWith(self.customFetchLogic(event));
 });
 if (workbox) {
