@@ -42,20 +42,20 @@
     @foreach($clubs as $key => $club)
     <div class="col-lg-3 col-xl-4 col-md-12 filter f{{$club->domain_id}}" id="card">
       <div class="card mb-3" >
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls{{$club->id}}" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             @foreach($club->images as $key => $images)
             <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-              <img class="card-img-top" src="{{ asset('img/club/'.$images->filename) }}" alt="ss">
+              <img class="card-img-top h-50" src="{{ asset('img/club/'.$images->filename) }}" alt="ss">
             </div>
             @endforeach
           </div>
           @if($club->images->count() > 1)
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleControls{{$club->id}}" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#carouselExampleControls{{$club->id}}" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
