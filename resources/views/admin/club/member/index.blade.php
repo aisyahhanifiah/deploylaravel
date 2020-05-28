@@ -119,6 +119,7 @@
                         <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 10px;">No.<span><i class="fas fa-sort"></i></span></th>
                                     <th style="width: 300px;" class="sort" data-sort="name" style="cursor: pointer;">Name <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="unikl" style="cursor: pointer;">UniKL ID <span><i class="fas fa-sort"></i></span></th>
                                     <th style="width: 250px;" class="sort" data-sort="email" style="cursor: pointer;">Email <span><i class="fas fa-sort"></i></span></th>
@@ -130,11 +131,12 @@
                             <tbody  class="list">
                                 @foreach ($clubs as $user)
                                 <tr>
+                                    <td class="no">{{ $no=$no+1 }}</td>
                                     <td>
                                         <div class="media align-items-center">
                                             <span class="avatar avatar-sm rounded-circle">
                                                 <img alt="Image placeholder" src="{{ Gravatar::src($user->email) }}">
-                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name">{{ $user->user_name }}</span>
+                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name text-truncate">{{ $user->user_name }}</span>
                                         </div>
                                     </td>
                                     <td class="unikl">{{ $user->unikl_id }}</td>
@@ -162,9 +164,10 @@
                                                     {{ method_field('delete') }}
 
                                                     <input name="clubid" type="hidden" value="{{ $clubsname->id }}">
+                                              
                                                     {{-- {{dd($clubs->id)}} --}}
 
-                                                    <a class="dropdown-item" href="{{ route('admin.club.edit', $user->id) }}">{{ __('Edit') }}</a>
+                                                
                                                     <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to remove this member?") }}') ? this.parentElement.submit() : ''">
                                                         {{ __('Delete') }}
                                                     </button>

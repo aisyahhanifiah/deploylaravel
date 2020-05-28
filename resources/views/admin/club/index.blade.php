@@ -58,6 +58,7 @@
                       <table class="table table-responsive-md align-items-center ">
                         <thead class="thead-light">
                           <tr>
+                            <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 10px;">No.<span><i class="fas fa-sort"></i></span></th>
                             <th class="sort" data-sort="name" style="cursor: pointer;">Name <span><i class="fas fa-sort"></i></span></th>
                             <th class="sort" data-sort="semester">Semester</th>
                             <th class="sort" data-sort="members" style="cursor: pointer;">No. of members <span><i class="fas fa-sort"></i></span></th>
@@ -69,7 +70,7 @@
                         <tbody class="list">
                             @foreach ($clubs as $club)
                           <tr>
-                            
+                            <td class="no">{{ $no=$no+1 }}</td>
                             <td class="name">{{ $club->name }}</td>
                             <td class="semester">{{ $club->semester }}</td>
                             <td class="members"><b>{{ $userno->where('club_id', '=', $club->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ route('admin.club.member.show', $club) }}" class="btn btn-sm btn-primary">{{ __('All members') }}</a></td>

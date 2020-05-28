@@ -68,8 +68,8 @@ class AdminEventMemberController extends Controller
         $findCreate = UserEvent::where('event_id', '=', $eventid)->get();
         //dd($clubs);
         // $users = User::with('positions')->get();
-
-        return view('admin.event.member.index', ['events' => $events, 'eventid' => $eventid, 'users' => $users, 'findCreate' => $findCreate]);
+        $no = 0;
+        return view('admin.event.member.index', ['events' => $events, 'eventid' => $eventid, 'users' => $users, 'findCreate' => $findCreate, 'no' => $no]);
     }
 
     /**

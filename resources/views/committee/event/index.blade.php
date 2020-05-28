@@ -91,7 +91,7 @@
                                               <td class="startdate">{{ Carbon\Carbon::parse($event->start_date)->format('d/m/Y') }}</td>
                                               <td class="enddate">{{ Carbon\Carbon::parse($event->end_date)->format('d/m/Y') }}</td>
                                               <td class="venue text-truncate">{{ $event->venue }}</td>
-                                              <td class="members"><b>{{ $userno->where('event_id', '=', $event->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ route('committee.event.member.show', $event) }}" class="btn btn-sm btn-primary">{{ __('All members') }}</a></td>
+                                              <td class="members"><b>{{ $userno->where('event_id', '=', $event->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ route('committee.event.member.show', $event) }}" class="btn btn-sm btn-primary">{{ __('Participants') }}</a></td>
                                               <td class="creation">{{ $event->created_at->format('d/m/Y h:iA') }}</td>
                                               <td class="text-right">
                                             <div class="dropdown">

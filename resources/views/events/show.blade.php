@@ -20,7 +20,7 @@
           <div class="carousel-inner">
             @foreach($event->images as $key => $images)
             <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
-              <img class="card-img-top d-block w-100" src="{{ asset('img/event/'.$images->filename) }}" alt="ss">
+              <img class="card-img-top d-block w-100 h-50" src="{{ asset('img/event/'.$images->filename) }}" alt="ss">
             </div>
             @endforeach
           </div>
@@ -60,7 +60,7 @@
                           @if($checkUser == 1)
                           <a href="#" class="btn btn-sm btn-success disabled">Joined</a><br><br>
                           @else
-                          <a href="#" class="btn btn-sm btn-primary disabled">Not a member</a><br><br>
+                          <a href="#" class="btn btn-sm btn-primary disabled">Not a participant</a><br><br>
                           <form method="post" action="{{ route('myevent.join') }}" autocomplete="off">
                             {{ csrf_field() }}
                           <button type="submit" class="btn btn-sm btn-warning">Join this event</button>

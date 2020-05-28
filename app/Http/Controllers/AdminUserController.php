@@ -16,7 +16,8 @@ class AdminUserController extends Controller
      */
     public function index(User $model)
     {
-        return view('admin.user.index', ['users' => $model->paginate(100)]);
+        $no = 0;
+        return view('admin.user.index', ['users' => $model->paginate(100), 'no' => $no]);
     }
 
     /**

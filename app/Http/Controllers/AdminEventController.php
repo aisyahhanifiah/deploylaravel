@@ -30,8 +30,9 @@ class AdminEventController extends Controller
 
 
         $userno = UserEvent::all();
+        $no = 0;
 
-        return view('admin.event.index', ['events' => $events, 'userno' => $userno]);
+        return view('admin.event.index', ['events' => $events, 'userno' => $userno, 'no' => $no]);
     }
 
     /**

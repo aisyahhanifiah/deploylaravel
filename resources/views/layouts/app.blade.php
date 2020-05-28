@@ -21,9 +21,9 @@
         <!-- <link type="text/css" href="/vendor/bootstrap/dist/css/bootstrap-reboot.min.css" rel="stylesheet"> -->
         
 
-        {{-- <link rel="stylesheet" href="{{ asset('selectize') }}/css/selectize.css"> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('selectize') }}/css/normalize.css">
-        <link rel="stylesheet" href="{{ asset('selectize') }}/css/stylesheet.css"> --}}
+        <link rel="stylesheet" href="{{ asset('selectize') }}/css/selectize.css">
+        <link rel="stylesheet" href="{{ asset('selectize') }}/css/normalize.css">
+        <link rel="stylesheet" href="{{ asset('selectize') }}/css/stylesheet.css">
         <link rel="manifest" href="{{asset('manifest.json')}}">
         <meta name="mobile-web-app-capable" content="yes">
         {{-- <meta name="msapplication-starturl" content="/"> --}}
@@ -97,7 +97,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
         <script src="{{ asset('selectize') }}/js/standalone/selectize.js"></script>
-        <script src="{{ asset('selectize') }}/js/selectize.js"></script><script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script> 
+        <script src="{{ asset('selectize') }}/js/selectize.js"></script>
+        <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script> 
 
         @stack('js')
 {{--         <script src="{{ asset('selectize') }}/js/index.js"></script>

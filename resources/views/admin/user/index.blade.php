@@ -55,6 +55,7 @@
                         <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 10px;">No.<span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort " data-sort="name" style="width: 23%;cursor: pointer;" scope="col">{{ __('Name') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="unikl" style="cursor: pointer;" scope="col">{{ __('UniKL ID') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="email" style="cursor: pointer;" scope="col">{{ __('Email') }} <span><i class="fas fa-sort"></i></span></th>
@@ -66,6 +67,7 @@
                             <tbody class="list">
                                 @foreach ($users as $user)
                                     <tr>
+                                        <td class="no">{{ $no=$no+1 }}</td>
                                         <td class="name text-truncate">{{ $user->name }}</td>
                                         <td class="unikl">{{ $user->unikl_id }}</td>
                                         <td class="email text-truncate">

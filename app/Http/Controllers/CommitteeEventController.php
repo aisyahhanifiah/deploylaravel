@@ -9,6 +9,7 @@ use Auth;
 use App\Club;
 use App\Domain;
 use App\UserEvent;
+use App\UserClub;
 use App\Level;
 use App\Category;
 use App\Position;
@@ -56,9 +57,16 @@ class CommitteeEventController extends Controller
         $levels = Level::all(['id', 'name']);
         $domains = Domain::all(['id', 'name']);
         $categories = Category::all(['id', 'name']);
-        $clubs = Club::whereHas('users', function($q) {
-            $q->where('club_user.position_id', '<', 6);
-        })->get();
+        // $clubs = Club::with('users')->where()->whereHas('users', function($q) {
+        //     $q->where('club_user.position_id', '<', 6);
+        // })->get();
+        $clubs = DB::table('club_user')
+        ->join('clubs', 'clubs.id', '=', 'club_user.club_id')
+        ->join('positions', 'positions.id', '=', 'club_user.position_id')
+        ->select('positions.*', 'clubs.*', 'positions.name as position_name', 'clubs.id as club_id1')
+        ->where('club_user.position_id', '<', 6)
+        ->where('club_user.user_id', Auth::user()->id)
+        ->get();
 
         return view('committee.event.create', ['levels' => $levels, 'domains' => $domains, 'categories' => $categories, 'clubs' => $clubs]);
     }
@@ -98,9 +106,13 @@ class CommitteeEventController extends Controller
         $levels = Level::all(['id', 'name']);
         $domains = Domain::all(['id', 'name']);
         $categories = Category::all(['id', 'name']);
-        $clubs = Club::whereHas('users', function($q) {
-            $q->where('club_user.position_id', '<', 6);
-        })->get();
+        $clubs = DB::table('club_user')
+        ->join('clubs', 'clubs.id', '=', 'club_user.club_id')
+        ->join('positions', 'positions.id', '=', 'club_user.position_id')
+        ->select('positions.*', 'clubs.*', 'positions.name as position_name', 'clubs.id as club_id1')
+        ->where('club_user.position_id', '<', 6)
+        ->where('club_user.user_id', Auth::user()->id)
+        ->get();
 
         $images = EventImage::where('event_id', $event->id)->get();
 

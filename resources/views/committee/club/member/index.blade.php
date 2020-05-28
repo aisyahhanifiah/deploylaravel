@@ -136,7 +136,7 @@
                                         <div class="media align-items-center">
                                             <span class="avatar avatar-sm rounded-circle">
                                                 <img alt="Image placeholder" src="{{ Gravatar::src($user->email) }}">
-                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name">{{ $user->user_name }}</span>
+                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name text-truncate">{{ $user->user_name }}</span>
                                         </div>
                                     </td>
                                     <td class="unikl">{{ $user->unikl_id }}</td>
@@ -164,7 +164,7 @@
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <form action="{{ route('admin.club.member.destroy', $user->id) }}" method="post">
+                                                <form action="{{ route('committee.club.member.destroy', $user->id) }}" method="post">
 
                                                     {{ csrf_field() }}
                                                     {{ method_field('delete') }}

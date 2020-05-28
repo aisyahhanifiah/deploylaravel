@@ -118,7 +118,7 @@
                                         <div class="media align-items-center">
                                             <span class="avatar avatar-sm rounded-circle">
                                                 <img alt="Image placeholder" src="{{ Gravatar::src($user->email) }}">
-                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name">{{ $user->name }}</span>
+                                            </span>&nbsp&nbsp&nbsp&nbsp<span class="name text-truncate">{{ $user->name }}</span>
                                         </div>
                                     </td>
                                     <td class="unikl">{{ $user->unikl_id }}</td>
@@ -147,7 +147,6 @@
 
                                                     <input name="event_id" type="hidden" value="{{ $events->id }}">
 
-                                                    <a class="dropdown-item" href="{{ route('committee.event.edit', $user->id) }}">{{ __('Edit') }}</a>
                                                     <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to remove this member?") }}') ? this.parentElement.submit() : ''">
                                                         {{ __('Delete') }}
                                                     </button>

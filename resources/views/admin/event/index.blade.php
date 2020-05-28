@@ -54,6 +54,7 @@
                         <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 7px;">No.<span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="name" style="width: 20%;cursor: pointer;" scope="col">{{ __('Name') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="startdate" style="cursor: pointer;" scope="col">{{ __('Start Date') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="enddate" style="cursor: pointer;" scope="col">{{ __('End Date') }} <span><i class="fas fa-sort"></i></span></th>
@@ -66,11 +67,12 @@
                             <tbody class="list">
                                 @foreach ($events as $event)
                                     <tr>
+                                        <td class="no">{{ $no=$no+1 }}</td>
                                         <td class="name text-truncate">{{ $event->name }}</td>
                                         <td class="startdate">{{ Carbon\Carbon::parse($event->start_date)->format('d/m/Y') }}</td>
                                         <td class="enddate">{{ Carbon\Carbon::parse($event->end_date)->format('d/m/Y') }}</td>
                                         <td class="venue text-truncate">{{ $event->venue }}</td>
-                                        <td class="members"><b>{{ $userno->where('event_id', '=', $event->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ route('admin.event.member.show', $event) }}" class="btn btn-sm btn-primary">{{ __('All members') }}</a></td>
+                                        <td class="members"><b>{{ $userno->where('event_id', '=', $event->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp<a href="{{ route('admin.event.member.show', $event) }}" class="btn btn-sm btn-primary">{{ __('Participants') }}</a></td>
                                         <td class="creation">{{ $event->created_at->format('d/m/Y h:iA') }}</td>
                                         <td class="text-right">
                                             <div class="dropdown">

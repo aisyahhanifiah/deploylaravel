@@ -50,9 +50,13 @@ class CommitteeMeetingController extends Controller
      */
     public function create()
     {
-        $clubs = Club::whereHas('users', function($q) {
-            $q->where('club_user.position_id', '<', 6);
-        })->get();
+        $clubs = DB::table('club_user')
+        ->join('clubs', 'clubs.id', '=', 'club_user.club_id')
+        ->join('positions', 'positions.id', '=', 'club_user.position_id')
+        ->select('positions.*', 'clubs.*', 'positions.name as position_name', 'clubs.id as club_id1')
+        ->where('club_user.position_id', '<', 6)
+        ->where('club_user.user_id', Auth::user()->id)
+        ->get();
 
         return view('committee.meeting.create', ['clubs' => $clubs]);
     }
@@ -89,9 +93,13 @@ class CommitteeMeetingController extends Controller
      */
     public function edit(Meeting $meeting)
     {
-        $clubs = Club::whereHas('users', function($q) {
-            $q->where('club_user.position_id', '<', 6);
-        })->get();
+        $clubs = DB::table('club_user')
+        ->join('clubs', 'clubs.id', '=', 'club_user.club_id')
+        ->join('positions', 'positions.id', '=', 'club_user.position_id')
+        ->select('positions.*', 'clubs.*', 'positions.name as position_name', 'clubs.id as club_id1')
+        ->where('club_user.position_id', '<', 6)
+        ->where('club_user.user_id', Auth::user()->id)
+        ->get();
 
         return view('committee.meeting.edit', compact('meeting','clubs'));
     }

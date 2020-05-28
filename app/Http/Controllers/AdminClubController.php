@@ -25,8 +25,8 @@ class AdminClubController extends Controller
         $user = User::all();
 
         $userno = UserClub::all();
-
-        return view('admin.club.index', ['clubs' => $clubs, 'userno' => $userno, 'user' => $user]);
+        $no = 0;
+        return view('admin.club.index', ['clubs' => $clubs, 'userno' => $userno, 'user' => $user, 'no' => $no]);
     }
 
     /**

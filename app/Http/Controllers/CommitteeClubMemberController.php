@@ -54,13 +54,22 @@ class CommitteeClubMemberController extends Controller
             $model->create($request->all());
 
             if ($request->position_id < 6) {
-                DB::table('users')->where('id', Input::get('user_id'))->update(
-                    ['roles' => 'committee']
-                );
+                if(User::where('user_id', Input::get('user_id'))->where('email', 'admin@clubhub.com')){
+                }else{
+                    DB::table('users')->where('id', Input::get('user_id'))->update(
+                        ['roles' => 'committee']
+                    );
+                }
+                
             }else {
-                DB::table('users')->where('id', Input::get('user_id'))->update(
-                    ['roles' => 'normal']
-                );
+                if(User::where('user_id', Input::get('user_id'))->where('roles', 'committee')->exists()){
+
+                }else{
+                    DB::table('users')->where('id', Input::get('user_id'))->update(
+                        ['roles' => 'normal']
+                    );
+                }
+            
             }
 
             return redirect()->back()->withStatus(__('Member successfully added.'));
@@ -135,6 +144,17 @@ class CommitteeClubMemberController extends Controller
         $clubid = $request->input('clubid');
 
         $aa=DB::table('club_user')->where('user_id', '=', $id)->where('club_id', '=', $clubid)->delete();
+
+        if(UserClub::where('user_id', $id)->where('position_id', '<', 6)->exists()){
+
+        }else{
+            if(User::where('user_id', $id)->where('email', 'admin@clubhub.com')){
+            }else{
+                DB::table('users')->where('id', Input::get('user_id'))->update(
+                    ['roles' => 'normal']
+                );
+            }
+        }
 
         return redirect()->back()->withStatus(__('Member successfully deleted.'));
     }

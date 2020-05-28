@@ -34,7 +34,7 @@ class AdminClubMemberController extends Controller
         //$comments = App\Post::find(1)->comments;
 
         $position = User::find(1)->position;
-
+        
         //$position
         //dd($position);
 
@@ -66,13 +66,22 @@ class AdminClubMemberController extends Controller
             $model->create($request->all());
 
             if ($request->position_id < 6) {
-                DB::table('users')->where('id', Input::get('user_id'))->update(
-                    ['roles' => 'committee']
-                );
+                if(User::where('user_id', Input::get('user_id'))->where('email', 'admin@clubhub.com')){
+                }else{
+                    DB::table('users')->where('id', Input::get('user_id'))->update(
+                        ['roles' => 'committee']
+                    );
+                }
+                
             }else {
-                DB::table('users')->where('id', Input::get('user_id'))->update(
-                    ['roles' => 'normal']
-                );
+                if(User::where('user_id', Input::get('user_id'))->where('roles', 'committee')->exists()){
+
+                }else{
+                    DB::table('users')->where('id', Input::get('user_id'))->update(
+                        ['roles' => 'normal']
+                    );
+                }
+            
             }
 
             return redirect()->back()->withStatus(__('Member successfully added.'));
@@ -121,9 +130,9 @@ class AdminClubMemberController extends Controller
         // foreach ($users->positions as $value) {
         //     dd($value->name);
         // }
-        
+        $no = 0;
 
-        return view('admin.club.member.index', ['clubs' => $clubs, 'clubid' => $clubid, 'users' => $users, 'clubsname' => $clubsname, 'positions' => $positions, 'findCreate' => $findCreate]);
+        return view('admin.club.member.index', ['clubs' => $clubs, 'clubid' => $clubid, 'users' => $users, 'clubsname' => $clubsname, 'positions' => $positions, 'findCreate' => $findCreate, 'no' => $no]);
     }
 
     /**
@@ -161,6 +170,17 @@ class AdminClubMemberController extends Controller
 
         $aa=DB::table('club_user')->where('user_id', '=', $id)->where('club_id', '=', $clubid)->delete();
 
+        if(UserClub::where('user_id', $id)->where('position_id', '<', 6)->exists()){
+
+        }else{
+            if(User::where('user_id', $id)->where('email', 'admin@clubhub.com')){
+            }else{
+                DB::table('users')->where('id', Input::get('user_id'))->update(
+                    ['roles' => 'normal']
+                );
+            }
+        }
+        
         return redirect()->back()->withStatus(__('Member successfully deleted.'));
     }
 }

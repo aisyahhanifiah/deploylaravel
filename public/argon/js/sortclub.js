@@ -1,5 +1,5 @@
   var options = {
-  valueNames: ['name', 'semester', 'members', 'creation' ]
+  valueNames: ['name', 'semester', 'members', 'creation', 'no' ]
 };
 
 // Init list

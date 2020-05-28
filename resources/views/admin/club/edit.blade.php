@@ -209,7 +209,7 @@
                             </thead>
                             <tbody class="list">
                                 @if($images == NULL)
-                                No images yet.
+                                <p>No images yet.</p>
                                 @endif
                                 @foreach($images as $image)
 
