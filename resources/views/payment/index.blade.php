@@ -188,7 +188,7 @@
 
                         <td class="name">{{ $event->name }}</td>
                         <td class="fees"><b>RM{{ number_format($event->fees, 2) }}</b></td>
-                        <td class="updated_at">{{ Carbon\Carbon::parse($club->pivot->updated_at)->format('d/m/Y') }}</td>
+                        <td class="updated_at">{{ Carbon\Carbon::parse($userevent->find($event->pivot->id)->updated_at)->format('d/m/Y') }}</td>
                         <td class=""> {{-- {{ dd($userevent->find($event->pivot->id))}} --}}
                             <a href="{{ route('payment.show2', $userevent->find($event->pivot->id)) }}" class="btn btn-sm btn-success">View More</a>
                             

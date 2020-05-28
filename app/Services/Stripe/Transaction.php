@@ -47,7 +47,8 @@ class Transaction
                 $updateDetails = [
                     'stripe_charge_id' => $charge->id,
                     'paid_out' => $payout,
-                    'fees_collected' => $amount - $payout
+                    'fees_collected' => $amount - $payout,
+                    'updated_at' => now()
                 ];
 
                 if (UserClub::where('user_id', $user->id)->where('club_id', $club->id)->exists()) {

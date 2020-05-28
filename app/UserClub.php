@@ -15,7 +15,7 @@ class UserClub extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'club_id', 'position_id', 'stripe_charge_id', 'paid_out', 'fees_collected',
+        'user_id', 'club_id', 'position_id', 'stripe_charge_id', 'paid_out', 'fees_collected', 'updated_at'
     ];
 
     /**
