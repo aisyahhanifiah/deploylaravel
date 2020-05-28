@@ -1,7 +1,16 @@
-
+importScripts('vendor/workbox/workbox-v3.6.3/workbox-sw.js');
 self.addEventListener('fetch', event => {
-  importScripts('vendor/workbox/workbox-v3.6.3/workbox-sw.js');
   event.respondWith(self.customFetchLogic(event));
+});
+const urlsToCache = [
+  'vendor/workbox/workbox-v3.6.3/workbox-sw.js'  // Oops! This is listed twice and should be removed.
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open('my-cache')
+      .then(cache => cache.addAll(urlsToCache))
+  );
 });
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
