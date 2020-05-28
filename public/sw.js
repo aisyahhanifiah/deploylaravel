@@ -1,5 +1,7 @@
 importScripts('vendor/workbox/workbox-v3.6.3/workbox-sw.js');
-
+self.addEventListener('fetch', event => {
+  event.respondWith(self.customFetchLogic(event));
+});
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
 
