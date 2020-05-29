@@ -19,7 +19,7 @@
                         @endif
 
                         <form role="form" method="POST" action="{{ route('password.email') }}">
-                            @csrf
+                            {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
                                 <div class="input-group input-group-alternative">

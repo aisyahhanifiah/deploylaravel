@@ -25,7 +25,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::with('images')->get()->sortBy('start_date', true);
+        $events = Event::with('images')->latest('start_date')->get();
         //dd($clubs);
         $users = User::with('events')->find(Auth::user()->id);
 

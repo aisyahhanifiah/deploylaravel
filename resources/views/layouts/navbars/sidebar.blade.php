@@ -137,7 +137,7 @@
                 </li> --}}
             </ul>
 
-
+            @if(Auth::user()->isCommittee())
             <hr class="my-3">
             <h6 class="navbar-heading text-muted">Committee</h6>
             <ul class="navbar-nav">
@@ -158,7 +158,7 @@
                 </li>
                 
             </ul>
-
+            @endif
             @if(Auth::user()->isAdmin())
             <hr class="my-3">
             <h6 class="navbar-heading text-muted">Admin</h6>

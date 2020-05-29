@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
 	// Route::get('admin/club/export', 'ExportController@exportClub')->name('admin.export');
 });
 
-Route::group(['middleware' => ['auth', 'admin', 'committee']], function () {
+Route::group(['middleware' => ['auth', 'committee']], function () {
 	Route::resource('committee/club', 'CommitteeClubController', ['as'=>'committee']);
 	Route::resource('committee/club/member', 'CommitteeClubMemberController', ['as'=>'committee.club']);
 	Route::resource('committee/club/image', 'ClubImageController', ['as'=>'club']);

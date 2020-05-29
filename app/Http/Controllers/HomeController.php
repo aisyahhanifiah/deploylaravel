@@ -37,7 +37,7 @@ class HomeController extends Controller
         $totalpending = $pending + $pending1;
 
         $allclubs = Club::withCount('users')->with('domains:id,name')->limit(10)->get();
-        $allevents = Event::withCount('users')->with('domains:id,name')->limit(10)->get()->sortBy('start_date', true);
+        $allevents = Event::withCount('users')->with('domains:id,name')->limit(10)->latest('start_date')->get();
         // dd($allclubs);
         return view('dashboard', compact('clubs', 'events', 'meetings', 'totalpending', 'allclubs', 'allevents'));
     }
