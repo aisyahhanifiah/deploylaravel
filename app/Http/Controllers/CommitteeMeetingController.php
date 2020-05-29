@@ -115,7 +115,7 @@ class CommitteeMeetingController extends Controller
     {
         $meeting->update($request->all());
 
-        return redirect()->route('admin.meeting.index')->withStatus(__('Meeting successfully updated.'));
+        return redirect()->route('committee.meeting.index')->withStatus(__('Meeting successfully updated.'));
     }
 
     /**
@@ -124,8 +124,14 @@ class CommitteeMeetingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Meeting $meeting)
     {
-        //
+        if(UserMeeting::where('meeting_id', $meeting->id)->count() > 0){
+            return redirect()->route('committee.meeting.index')->with('statuswarning','Meeting cannot be deleted. There are attendees in the meeting.');
+        }else{
+            $meeting->delete();
+        }
+        
+        return redirect()->route('committee.meeting.index')->withStatus(__('Meeting successfully deleted.'));
     }
 }

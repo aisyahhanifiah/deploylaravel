@@ -42,7 +42,7 @@ class AdminEventMemberController extends Controller
      */
     public function store(Request $request,  UserEvent $model)
     {
-        if (UserEvent::where('user_id', Input::get('user_id'))->exists()) {
+        if (UserEvent::where('user_id', Input::get('user_id'))->where('event_id', $request->event_id)->exists()) {
             return redirect()->back()->with('statuswarning','User is already a member.');
         }
         else {
@@ -103,7 +103,7 @@ class AdminEventMemberController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $eventid = $request->input('eventid');
+        $eventid = $request->input('event_id');
 
         $aa=DB::table('event_user')->where('user_id', '=', $id)->where('event_id', '=', $eventid)->delete();
 
@@ -112,6 +112,6 @@ class AdminEventMemberController extends Controller
 
         //dd($aa);
         
-        return redirect()->back()->withStatus(__('Participants successfully removed.'));
+        return redirect()->back()->withStatus(__('Participant successfully removed.'));
     }
 }

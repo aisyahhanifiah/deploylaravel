@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('admin.event.store') }}" autocomplete="off">
+                        <form method="post" action="{{ route('committee.event.store') }}" autocomplete="off">
                             {{ csrf_field() }}
                             
                             <h6 class="heading-small text-muted mb-4">{{ __('Event information') }}</h6>

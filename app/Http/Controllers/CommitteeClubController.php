@@ -110,6 +110,6 @@ class CommitteeClubController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //no destroy
     }
 }

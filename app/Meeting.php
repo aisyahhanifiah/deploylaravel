@@ -6,7 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meeting extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'datetime', 'venue', 'club_id'
+    ];
 
     /**
      * The users that belong to the meeting.

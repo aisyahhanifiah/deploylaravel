@@ -131,7 +131,14 @@ class AdminEventController extends Controller
      */
     public function destroy(Event $event)
     {
-        $event->delete();
+        if(UserEvent::where('event_id', $event->id)->count() > 0){
+            return redirect()->route('admin.event.index')->with('statuswarning','Event cannot be deleted. There are participants in the event.');
+        }elseif (EventImage::where('event_id', $event->id)->count() > 0) {
+            return redirect()->route('admin.event.index')->with('statuswarning','Event cannot be deleted. There are images in the event.');
+        }
+        else{
+            $event->delete();
+        }
 
         return redirect()->route('admin.event.index')->withStatus(__('Event successfully deleted.'));
     }

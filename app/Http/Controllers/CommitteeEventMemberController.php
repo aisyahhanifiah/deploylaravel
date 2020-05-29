@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 use App\Event;
 use App\UserEvent;
 use App\User;
+
+use DB;
 
 class CommitteeEventMemberController extends Controller
 {
@@ -36,9 +39,16 @@ class CommitteeEventMemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,  UserEvent $model)
     {
-        //
+
+        if (UserEvent::where('user_id', Input::get('user_id'))->where('event_id', $request->event_id)->exists()) {
+            return redirect()->back()->with('statuswarning','User is already a participant.');
+        }
+        else {
+            $model->create($request->all());
+            return redirect()->back()->withStatus(__('Participant successfully added.'));
+        }
     }
 
     /**
@@ -91,10 +101,10 @@ class CommitteeEventMemberController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $eventid = $request->input('eventid');
+        $eventid = $request->input('event_id');
 
         $aa=DB::table('event_user')->where('user_id', '=', $id)->where('event_id', '=', $eventid)->delete();
 
-        return redirect()->back()->withStatus(__('Participants successfully removed.'));
+        return redirect()->back()->withStatus(__('Participant successfully removed.'));
     }
 }

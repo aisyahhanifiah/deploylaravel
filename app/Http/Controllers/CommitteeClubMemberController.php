@@ -54,7 +54,7 @@ class CommitteeClubMemberController extends Controller
             $model->create($request->all());
 
             if ($request->position_id < 6) {
-                if(User::where('user_id', Input::get('user_id'))->where('email', 'admin@clubhub.com')){
+                if(User::where('id', Input::get('user_id'))->where('email', 'admin@clubhub.com')){
                 }else{
                     DB::table('users')->where('id', Input::get('user_id'))->update(
                         ['roles' => 'committee']
@@ -62,7 +62,7 @@ class CommitteeClubMemberController extends Controller
                 }
                 
             }else {
-                if(User::where('user_id', Input::get('user_id'))->where('roles', 'committee')->exists()){
+                if(User::where('id', Input::get('user_id'))->where('roles', 'committee')->exists()){
 
                 }else{
                     DB::table('users')->where('id', Input::get('user_id'))->update(
@@ -142,15 +142,18 @@ class CommitteeClubMemberController extends Controller
     public function destroy(Request $request, $id)
     {
         $clubid = $request->input('clubid');
+        $user = User::find($id);
+
 
         $aa=DB::table('club_user')->where('user_id', '=', $id)->where('club_id', '=', $clubid)->delete();
 
-        if(UserClub::where('user_id', $id)->where('position_id', '<', 6)->exists()){
+        // dd(UserClub::where('user_id', $id)->where('position_id', '<', 6)->count());
+        if(UserClub::where('user_id', $id)->where('position_id', '<', 6)->count() > 0){
 
         }else{
-            if(User::where('user_id', $id)->where('email', 'admin@clubhub.com')){
+            if($user->email == 'admin@clubhub.com'){
             }else{
-                DB::table('users')->where('id', Input::get('user_id'))->update(
+                DB::table('users')->where('id', $id)->update(
                     ['roles' => 'normal']
                 );
             }
