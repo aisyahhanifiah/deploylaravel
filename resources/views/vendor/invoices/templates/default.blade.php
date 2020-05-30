@@ -38,7 +38,7 @@
         @if($invoice->logo)
             <img src="{{ $invoice->getLogo() }}" alt="logo" height="100">
         @endif
-        <table class="table mt-5">
+        <table width="100%" style="width:100%" class="table mt-5">
             <tbody>
                 <tr>
                     <td class="border-0 pl-0" width="70%">
@@ -55,7 +55,7 @@
         </table>
 
         {{-- Seller - Buyer --}}
-        <table class="table">
+        <table width="100%" style="width:100%" class="table">
             <thead>
                 <tr>
                     <th class="border-0 pl-0" width="48.5%">
@@ -149,7 +149,7 @@
         </table>
 
         {{-- Table --}}
-        <table class="table">
+        <table width="100%" style="width:100%" class="table">
             <thead>
                 <tr>
                     <th scope="col" class="border-0 pl-0">{{ __('invoices::invoice.description') }}</th>
