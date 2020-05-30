@@ -120,11 +120,12 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 10px;">No.<span><i class="fas fa-sort"></i></span></th>
-                                    <th style="width: 300px;" class="sort" data-sort="name" style="cursor: pointer;">Name <span><i class="fas fa-sort"></i></span></th>
+                                    <th style="width: 300px;" class="sort" data-sort="name" style="width: 30%;cursor: pointer;">Name <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="unikl" style="cursor: pointer;">UniKL ID <span><i class="fas fa-sort"></i></span></th>
                                     <th style="width: 250px;" class="sort" data-sort="email" style="cursor: pointer;">Email <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="position_name" style="cursor: pointer;">Position <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="creation" style="cursor: pointer;">Creation Date <span><i class="fas fa-sort"></i></span></th>
+                                    <th class="sort pl-5" data-sort="fees" style="cursor: pointer;">Club Fee <span><i class="fas fa-sort"></i></span></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -151,6 +152,13 @@
                                     @foreach($findCreate->where('user_id', $user->id) as $a)
                                     <td class="creation">{{ Carbon\Carbon::parse($a->created_at)->format('d/m/Y h:iA') }}</td>
                                     @endforeach
+                                    <td class="fees text-right pl-5">
+                                        @if (is_null($findCreate->where('user_id', $user->id)->first()->stripe_charge_id))
+                                            <p class="btn btn-sm btn-warning disabled">Not Paid</p>
+                                        @else
+                                            <p class="btn btn-sm btn-success disabled">Paid</p>
+                                        @endif 
+                                    </td>
                                    {{--  <td class="creation">{{ Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i') }}</td> --}}
                                     <td class="text-right">
                                         <div class="dropdown">

@@ -11,7 +11,7 @@
                     <div class="card-body px-lg-5 py-lg-5">
                         <div class="text-center text-muted mb-4">
                             <small>
-                                <a href="{{ route('register') }}">{{ __('Create new account') }}</a> {{ __('OR Sign in with these credentials:') }}
+                                For the purpose of the demo, {{ __('Sign in with these credentials:') }}
                             </small>
                             <br>
                             <small>

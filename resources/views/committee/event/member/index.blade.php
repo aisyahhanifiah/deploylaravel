@@ -122,10 +122,12 @@
                                         </div>
                                     </td>
                                     <td class="unikl">{{ $user->unikl_id }}</td>
-                                    <td class="email">{{ $user->email }}</td>
+                                    <td class="email text-truncate">{{ $user->email }}</td>
                                     
                                     @foreach($findCreate->where('user_id', $user->id) as $a)
                                     <td class="creation">{{ Carbon\Carbon::parse($a->created_at)->format('d/m/Y h:iA') }}</td>
+                                    
+                                    @endforeach
                                     <td class="fees pl-5">
                                         @if (is_null($findCreate->where('user_id', $user->id)->first()->stripe_charge_id))
                                             <p class="btn btn-sm btn-warning disabled">Not Paid</p>
@@ -133,7 +135,6 @@
                                             <p class="btn btn-sm btn-success disabled">Paid</p>
                                         @endif 
                                     </td>
-                                    @endforeach
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

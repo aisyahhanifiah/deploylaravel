@@ -198,7 +198,7 @@ class PaymentController extends Controller
             ->currencySymbol('MYR')
             ->currencyCode('Ringgit Malaysia');
 
-        return $invoice->download();
+        return $invoice->stream();
 
     }
 
@@ -246,7 +246,7 @@ class PaymentController extends Controller
             ->currencyCode('Ringgit Malaysia')
             ->currencyFraction('cents');
 
-        return $invoice->download();
+        return $invoice->stream();
 
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\UserClub;
+use App\UserEvent;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 
@@ -80,7 +82,17 @@ class AdminUserController extends Controller
      */
     public function destroy(User  $user)
     {
-        $user->delete();
+        $userevent = UserEvent::where('user_id', $user->id)->first();
+        $userclub = UserClub::where('user_id', $user->id)->first();
+        if ($userclub != NULL) {
+             return redirect()->back()->with('statuswarning','This user cannot be deleted. User is a member of club.');
+        }elseif($userevent != NULL){
+            return redirect()->back()->with('statuswarning','This user cannot be deleted. User is a participant of event');
+        }else{
+            $user->delete();
+        }
+
+        
 
         return redirect()->route('admin.user.index')->withStatus(__('User successfully deleted.'));
     }

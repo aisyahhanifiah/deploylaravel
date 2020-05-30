@@ -142,11 +142,16 @@ class CommitteeClubMemberController extends Controller
     public function destroy(Request $request, $id)
     {
         $clubid = $request->input('clubid');
-        $user = User::find($id);
+        $user = UserClub::where('user_id', $id)->where('club_id', '=', $clubid)->first();
 
 
-        $aa=DB::table('club_user')->where('user_id', '=', $id)->where('club_id', '=', $clubid)->delete();
-
+        // dd($user->stripe_charge_id );
+        if ($user->stripe_charge_id != NULL) {
+             return redirect()->back()->with('statuswarning','This user cannot be deleted. User already paid the fees.');
+        }else{
+            $aa=DB::table('club_user')->where('user_id', '=', $id)->where('club_id', '=', $clubid)->delete();
+        }
+        
         // dd(UserClub::where('user_id', $id)->where('position_id', '<', 6)->count());
         if(UserClub::where('user_id', $id)->where('position_id', '<', 6)->count() > 0){
 

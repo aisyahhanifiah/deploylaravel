@@ -61,6 +61,7 @@
                                     <th class="sort" data-sort="members" style="cursor: pointer;" scope="col">{{ __('No. of participant') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="creation" style="cursor: pointer;" scope="col">{{ __('Creation Date') }} <span><i class="fas fa-sort"></i></span></th>
                                     {{-- <th scope="col"></th> --}}
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody class="list">
@@ -72,6 +73,9 @@
                                         <td class="venue text-truncate">{{ $event->venue }}</td>
                                         <td class="members"><b>{{ $userno->where('event_id', '=', $event->id)->count() }}</b>&nbsp&nbsp&nbsp&nbsp&nbsp</td>
                                         <td class="creation">{{ $event->pivot->created_at->format('d/m/Y h:iA') }}</td>
+                                        <td>
+                                        <a href="{{ route('event.show', $event->id) }}" class="btn btn-sm btn-primary">{{ __('View More') }}</a>
+                                    </td>
                                         {{-- <td class="text-right">
                                             <div class="dropdown">
                                                 <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

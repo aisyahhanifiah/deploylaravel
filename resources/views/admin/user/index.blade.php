@@ -50,11 +50,22 @@
                             </div>
                         @endif
                     </div>
+                    <div class="col-12">
+                        @if (session('statuswarning'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('statuswarning') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+                    </div>
 
                     <div class="table-responsive">
                         <table class="table table-responsive-md align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
+
                                     <th scope="col" class="sort" data-sort="no" style="cursor: pointer;width: 10px;">No.<span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort " data-sort="name" style="width: 23%;cursor: pointer;" scope="col">{{ __('Name') }} <span><i class="fas fa-sort"></i></span></th>
                                     <th class="sort" data-sort="unikl" style="cursor: pointer;" scope="col">{{ __('UniKL ID') }} <span><i class="fas fa-sort"></i></span></th>
@@ -82,7 +93,7 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                                     @if ($user->id != auth()->id())
-                                                        <form action="{{ route('user.destroy', $user) }}" method="post">
+                                                        <form action="{{ route('admin.user.destroy', $user) }}" method="post">
                                                             {{ csrf_field() }}
                                                             {{ method_field('delete') }}
                                                             

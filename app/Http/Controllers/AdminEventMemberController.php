@@ -105,7 +105,15 @@ class AdminEventMemberController extends Controller
     {
         $eventid = $request->input('event_id');
 
-        $aa=DB::table('event_user')->where('user_id', '=', $id)->where('event_id', '=', $eventid)->delete();
+        $user = UserEvent::where('user_id', $id)->where('event_id', '=', $eventid)->first();
+
+
+        // dd($user->stripe_charge_id );
+        if ($user->stripe_charge_id != NULL) {
+             return redirect()->back()->with('statuswarning','This user cannot be deleted. User already paid the fees.');
+        }else{
+            $aa=DB::table('event_user')->where('user_id', '=', $id)->where('event_id', '=', $eventid)->delete();
+        }
 
         //$user = User::with('clubs')->find($id)->detach($id);
 
