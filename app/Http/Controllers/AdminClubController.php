@@ -103,9 +103,9 @@ class AdminClubController extends Controller
     {
         // dd(UserEvent::where('event_id', $event->id)->count());
         if(UserClub::where('club_id', $club->id)->count() > 0){
-            return redirect()->route('committee.event.index')->with('statuswarning','Club cannot be deleted. There are members in the club.');
+            return redirect()->route('admin.club.index')->with('statuswarning','Club cannot be deleted. There are members in the club.');
         }elseif (ClubImage::where('club_id', $club->id)->count() > 0) {
-            return redirect()->route('admin.event.index')->with('statuswarning','Club cannot be deleted. There are images in the club.');
+            return redirect()->route('admin.club.index')->with('statuswarning','Club cannot be deleted. There are images in the club.');
         }else{
             $club->delete();
         }
