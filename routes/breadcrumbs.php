@@ -3,9 +3,16 @@ use App\Club;
 use App\Event;
 use App\Meeting;
 use App\User;
+
 // Home
 Breadcrumbs::register('home', function ($breadcrumbs) {
     $breadcrumbs->push('Home', route('home'));
+});
+
+// Home
+Breadcrumbs::register('support', function ($breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('My Support', route('support'));
 });
 
 // Home > MyClub

@@ -31,7 +31,7 @@
                         <span>{{ __('My profile') }}</span>
                     </a>
                   
-                    <a href="#" class="dropdown-item">
+                    <a href="{{ route('support') }}" class="dropdown-item">
                         <i class="ni ni-support-16"></i>
                         <span>{{ __('Support') }}</span>
                     </a>

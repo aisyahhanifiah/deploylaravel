@@ -18,7 +18,8 @@
                             </div>
                         @endif
 
-                        <form role="form" method="POST" action="{{ route('password.email') }}">
+                        <p>Please email to admin@clubhub.com for password reset.</p>
+                        {{-- <form role="form" method="POST" action="{{ route('password.email') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
@@ -37,7 +38,7 @@
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary my-4">{{ __('Send Password Reset Link') }}</button>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>
